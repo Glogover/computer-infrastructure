@@ -1,4 +1,4 @@
-ipython
-numpy
 yfinance
+numpy
 pandas
+matplotlib
