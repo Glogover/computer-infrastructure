@@ -6,3 +6,4 @@ statsmodels
 pandas
 matplotlib
 seaborn
+yfinance
