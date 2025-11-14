@@ -1,5 +1,4 @@
-#!/usr/bin/env python    # Shebang line for Unix-based systems.
-
+#!/usr/bin/env python
 # Dates and times.
 import datetime as dt
 
