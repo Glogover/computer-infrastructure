@@ -1,8 +1,8 @@
-ipython
+#ipython
 yfinance
 numpy
-scipy
-statsmodels
+#scipy
+#statsmodels
 pandas
 matplotlib
 seaborn
