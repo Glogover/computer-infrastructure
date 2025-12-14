@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
   schedule:
     # Every Saturday at 10:15 UTC
-    - cron: '15 10 * * 6'
+    # From: https://crontab.guru/#15_10_*_*_6
+    - cron: '15 10 * * 6' 
 
 # Prevent overlapping runs (important for scheduled jobs)
 concurrency:
