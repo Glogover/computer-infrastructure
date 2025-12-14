@@ -3,49 +3,59 @@
 
 name: Run faang.py and commit changes
 
-# Trigger the workflow manually or on a schedule (to avoid accidental triggers on every push)
 on:
-  workflow_dispatch:  # Allows manual run from the Actions tab
+  workflow_dispatch:
   schedule:
-  # From: https://crontab.guru/#15_10_*_*_6 
-  - cron: '15 10 * * 6' # Every Saturday at 10:15 AM UTC
+    # Every Saturday at 10:15 UTC
+    - cron: '15 10 * * 6'
+
+# Prevent overlapping runs (important for scheduled jobs)
+concurrency:
+  group: faang-auto-update
+  cancel-in-progress: false
 
 jobs:
   run-script-and-commit:
     runs-on: ubuntu-latest
+
     permissions:
-      contents: write  # Required for pushing commits with GITHUB_TOKEN
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # default token with write permissions
-          fetch-depth: 0                      # ensure full history for committing
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'  # Adjust if you need a specific version
+          python-version: '3.x'
 
-
-      - name: Install dependencies (optional) # if your script has any dependencies    
+      - name: Install dependencies (optional)
         run: |
-          pip install -r requirements.txt || true
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "No requirements.txt found – skipping"
+          fi
 
       - name: Run faang.py
         run: python faang.py
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add -A
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
           fi
-          
-          git commit -m "Auto-update: changes from faang.py"
+
+          git pull --rebase origin main
+          git commit -m "Auto-update: faang.py ($(date -u +'%Y-%m-%d %H:%M UTC'))"
           git push origin HEAD
