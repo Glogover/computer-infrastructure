@@ -7,8 +7,8 @@ name: Run faang.py and commit changes
 on:
   workflow_dispatch:  # Allows manual run from the Actions tab
   schedule:
-    # From: https://crontab.guru/#15_10_*_*_6
-     - cron: '15 10 * * 6'
+    # From: https://crontab.guru/#15_10_*_*_6 
+     - cron: '15 10 * * 6' # Every Saturday at 10:15 AM UTC
 
 jobs:
   run-script-and-commit:
