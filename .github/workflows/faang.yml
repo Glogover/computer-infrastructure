@@ -48,4 +48,4 @@ jobs:
           fi
           
           git commit -m "Auto-update: changes from faang.py"
-          git push origin HEAD:${{ github.ref_name }}
+          git push origin HEAD
