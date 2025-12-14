@@ -56,6 +56,6 @@ jobs:
             exit 0
           fi
 
-          git pull --rebase origin main
           git commit -m "Auto-update: faang.py ($(date -u +'%Y-%m-%d %H:%M UTC'))"
           git push origin HEAD
+
