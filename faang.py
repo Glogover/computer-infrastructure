@@ -1,11 +1,11 @@
-# faang.py
-
-"""
-Created by Marcin Kaminski as part of academic coursework for Computer Infrastructure
- at the Atlantic Technological University (ATU).
-"""
-
 #!/usr/bin/env python3
+
+"""
+faang.py
+
+Created by Marcin Kaminski as part of academic coursework for Computer Infrastructure
+at the Atlantic Technological University (ATU).
+"""
 
 """
 When run from the terminal (./faang.py), this script:
@@ -27,6 +27,7 @@ import yfinance as yf # For downloading financial data from Yahoo Finance.
 import matplotlib.pyplot as plt # For creating static, animated, and interactive visualizations.
 # File system paths.
 from pathlib import Path # For handling filesystem paths in an object-oriented way.
+
 
 def get_data(days=5, interval='1h', folder='./data/'): 
     """
@@ -113,6 +114,7 @@ def plot_data(data_folder='./data/', plots_folder='./plots/'):
     plt.close() # Close the plot.
 
     return str(plot_path) # Return the path to the saved plot.
+
 
 def main(): 
     """
