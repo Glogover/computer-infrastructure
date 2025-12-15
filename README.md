@@ -86,7 +86,7 @@ Required Python packages:
 
 --- 
 
-**Author**
+**Author:**
 *Marcin Kaminski*
 
 
