@@ -82,7 +82,7 @@ Required Python packages:
 
 2. **Running the Python Script**
    ```bash
-   python faang.py
+   ./faang.py
 
 --- 
 
