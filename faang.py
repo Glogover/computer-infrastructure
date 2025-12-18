@@ -19,14 +19,26 @@ When run from the terminal (./faang.py), this script:
 
 # Dates and times.
 import datetime as dt # For handling dates and times. 
+# Sourced from: https://realpython.com/ref/stdlib/datetime/
+
 # Data frames.
 import pandas as pd # For data manipulation and analysis. 
+# https://en.wikipedia.org/wiki/Pandas_(software)
+# Sourced from: https://www.geeksforgeeks.org/python/how-to-install-python-pandas-on-windows-and-linux/
+
 # Yahoo Finance data.
 import yfinance as yf # For downloading financial data from Yahoo Finance. 
+# https://en.wikipedia.org/wiki/Yahoo_Finance
+# https://github.com/ranaroussi/yfinance
+# Sourced from: https://www.geeksforgeeks.org/python/how-to-import-yfinance-as-yf-in-python/
+
 # Plotting.
 import matplotlib.pyplot as plt # For creating static, animated, and interactive visualizations.
+# Sourced from: https://matplotlib.org/2.0.2/users/pyplot_tutorial.html
+
 # File system paths.
 from pathlib import Path # For handling filesystem paths in an object-oriented way.
+# Sourced from: https://docs.python.org/3/library/pathlib.html
 
 
 def get_data(days=5, interval='1h', folder='./data/'): 
